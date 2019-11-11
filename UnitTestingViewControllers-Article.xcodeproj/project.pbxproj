@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		803547262379A203006854FF /* ArtistDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803547252379A203006854FF /* ArtistDetailViewControllerTests.swift */; };
+		803547282379A400006854FF /* ArtistDetailPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803547272379A400006854FF /* ArtistDetailPresenterMock.swift */; };
 		807433AA2375C48B00A781A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807433A92375C48B00A781A4 /* AppDelegate.swift */; };
 		807433AC2375C48B00A781A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807433AB2375C48B00A781A4 /* SceneDelegate.swift */; };
 		807433AE2375C48B00A781A4 /* ArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807433AD2375C48B00A781A4 /* ArtistDetailViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		803547252379A203006854FF /* ArtistDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		803547272379A400006854FF /* ArtistDetailPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailPresenterMock.swift; sourceTree = "<group>"; };
 		807433A62375C48B00A781A4 /* UnitTestingViewControllers-Article.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UnitTestingViewControllers-Article.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		807433A92375C48B00A781A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		807433AB2375C48B00A781A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		807433BF2375C48C00A781A4 /* UnitTestingViewControllers-ArticleTests */ = {
 			isa = PBXGroup;
 			children = (
+				803547272379A400006854FF /* ArtistDetailPresenterMock.swift */,
+				803547252379A203006854FF /* ArtistDetailViewControllerTests.swift */,
 				807433C02375C48C00A781A4 /* UnitTestingViewControllers_ArticleTests.swift */,
 				807433C22375C48C00A781A4 /* Info.plist */,
 			);
@@ -210,6 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				803547282379A400006854FF /* ArtistDetailPresenterMock.swift in Sources */,
+				803547262379A203006854FF /* ArtistDetailViewControllerTests.swift in Sources */,
 				807433C12375C48C00A781A4 /* UnitTestingViewControllers_ArticleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
