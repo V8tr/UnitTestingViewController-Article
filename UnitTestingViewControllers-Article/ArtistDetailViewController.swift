@@ -13,12 +13,12 @@ protocol ArtistDetailPresenter {
     func onEdit()
 }
 
-protocol ArtistDetailRenderer: AnyObject {
+protocol ArtistDetailComponent: AnyObject {
     func render(_ props: ArtistDetailProps)
 }
 
 class ArtistDetailPresenterImpl: ArtistDetailPresenter {
-    weak var viewController: ArtistDetailRenderer!
+    weak var viewController: ArtistDetailComponent!
     
     func onViewLoaded() {
         viewController.render(.init(title: "A", fullName: "B", numberOfAlbums: "C", numberOfFollowers: "D"))
@@ -45,7 +45,7 @@ class ArtistDetailViewController: UIViewController {
     }
 }
 
-extension ArtistDetailViewController: ArtistDetailRenderer {
+extension ArtistDetailViewController: ArtistDetailComponent {
     func render(_ props: ArtistDetailProps) {
         navigationItem.title = props.title
         fullNameLabel.text = props.fullName

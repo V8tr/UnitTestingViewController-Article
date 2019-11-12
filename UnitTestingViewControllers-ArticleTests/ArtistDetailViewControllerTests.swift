@@ -9,6 +9,29 @@
 import XCTest
 @testable import UnitTestingViewControllers_Article
 
+class ArtistDetailsRouter {
+    init(navController: UINavigationController?, editProvider: @escaping () -> UIViewController) {
+        self.navController = navController
+        self.editProvider = editProvider
+    }
+    
+    let navController: UINavigationController?
+    let editProvider: () -> UIViewController
+    
+    func showEdit() {
+        navController?.pushViewController(editProvider(), animated: true)
+    }
+}
+
+class NavControllerSpy: UINavigationController {
+    
+    var lastPushedViewController: UIViewController?
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        lastPushedViewController = viewController
+    }
+}
+
 class ArtistDetailViewControllerTests: XCTestCase {
     
     let presenter = ArtistDetailPresenterMock()
