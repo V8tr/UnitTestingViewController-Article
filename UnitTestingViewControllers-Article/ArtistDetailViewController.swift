@@ -44,7 +44,7 @@ class ArtistDetailViewController: UIViewController {
         presenter.onEdit()
     }
 }
-//test 
+//test  tes tes 
 extension ArtistDetailViewController: ArtistDetailComponent {
     func render(_ props: ArtistDetailProps) {
         navigationItem.title = props.title
