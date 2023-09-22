@@ -13,7 +13,7 @@ jobs:
       - name: Test
         uses: actions/checkout@v1
       - name: Build and Test
-        run: xcodebuild test -project CodecovDemo.xcodeproj -scheme CodecovDemo -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' build test   
+        run: xcodebuild test -project UnitTestingViewControllers-Article.xcodeproj -scheme UnitTestingViewControllers-Article -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' build test   
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
