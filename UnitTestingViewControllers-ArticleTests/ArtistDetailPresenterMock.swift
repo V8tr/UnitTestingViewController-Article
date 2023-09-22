@@ -16,6 +16,7 @@ class ArtistDetailPresenterMock: ArtistDetailPresenter {
     func onViewLoaded() {
         onViewLoadedCalled = true
     }
+
     
     private(set) var onEditCalled = false
     
