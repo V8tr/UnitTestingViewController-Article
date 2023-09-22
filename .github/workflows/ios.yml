@@ -13,12 +13,7 @@ jobs:
       - name: Test
         uses: actions/checkout@v1
       - name: Build and Test
-        env:
-          scheme: ${{ 'default' }}
-          platform: ${{ 'iOS Simulator' }}
-        run: 
-          device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-          xcodebuild test -project UnitTestingViewControllers-Article.xcodeproj -scheme UnitTestingViewControllers-Article -destination "platform=$platform,name=$device" build test
+         run:  xcodebuild test -project CodecovDemo.xcodeproj -scheme CodecovDemo -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.3' build test   
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
