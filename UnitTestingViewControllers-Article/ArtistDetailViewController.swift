@@ -12,7 +12,9 @@ protocol ArtistDetailPresenter {
     func onViewLoaded()
     func onEdit()
 }
-
+protocol NewArtistDetailPresenter {
+    func onNewArtist()
+}
 protocol ArtistDetailComponent: AnyObject {
     func render(_ props: ArtistDetailProps)
 }
