@@ -44,5 +44,9 @@ jobs:
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: /Users/runner/Library/Developer/Xcode/DerivedData/UnitTestingViewControllers-Article-gimumqyynhgsfnfriiuiiyphgnnt/Logs/Test/
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          
