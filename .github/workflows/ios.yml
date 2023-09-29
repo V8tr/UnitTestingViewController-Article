@@ -20,7 +20,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-c-cpp@v1
       - name: Run build-wrapper
         run: |
-          build-wrapper-macosx-x86 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} xcodebuild -project macos-xcode.xcodeproj -scheme macos-xcode
+          build-wrapper-macosx-x86 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} xcodebuild -project UnitTestingViewControllers-Article.xcodeproj -scheme UnitTestingViewControllers-Article
       - name: Run tests to generate coverage statistics
         run: |
           xcodebuild test -project macos-xcode.xcodeproj -scheme test1 -enableCodeCoverage YES -derivedDataPath build
