@@ -24,6 +24,7 @@ protocol NewArtistDetailPresenter2 {
 protocol NewArtistDetailPresenter3 {
     func onNewArtist3()
 }
+
 protocol NewArtistDetailPresenter4 {
     func onNewArtist4()
 }
