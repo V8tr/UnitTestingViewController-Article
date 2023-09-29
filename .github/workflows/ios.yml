@@ -8,19 +8,27 @@ on:
 
 jobs:
   build:
-    runs-on: macOS-latest
+    name: Build
+    runs-on: macos-latest
+    env:
+      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
     steps:
-      - name: Test
-        uses: actions/checkout@v1
-      - name: Build and Test
-        run: xcodebuild test -project UnitTestingViewControllers-Article.xcodeproj -scheme UnitTestingViewControllers-Article -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' build test   
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.0-beta.2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Install sonar-scanner and build-wrapper
+        uses: SonarSource/sonarcloud-github-c-cpp@v1
+      - name: Run tests to generate coverage statistics
+        run: |
+          xcodebuild test -project UnitTestingViewControllers-Article.xcodeproj -scheme UnitTestingViewControllers-Article -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' build
+      - name: Collect coverage into one XML report
+        run: |
+          bash xccov-to-generic.sh build/Logs/Test/*.xcresult/ > generic-coverage.xml
+      - name: Run sonar-scanner
         env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Put the name of your token here
+        run: |
+          sonar-scanner \
+            --define sonar.cfamily.build-wrapper-output="${{ env.BUILD_WRAPPER_OUT_DIR }}" \
+            --define sonar.coverageReportPaths=generic-coverage.xml
