@@ -23,7 +23,7 @@ jobs:
           xcodebuild test -project UnitTestingViewControllers-Article.xcodeproj -scheme UnitTestingViewControllers-Article -enableCodeCoverage YES -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2' -derivedDataPath build
       - name: Collect coverage into one XML report
         run: |
-          bash xccov-to-generic.sh build/Logs/Test/*.xcresult/ > generic-coverage.xml
+          bash xccov-to-sonarqube-generic.sh build/Logs/Test/*.xcresult/ > generic-coverage.xml
       - name: Run sonar-scanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
